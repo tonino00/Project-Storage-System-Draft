@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos</title>
+</head>
+<body>
+    <div class="container">
+        <h1 calss="mb-4">Projetos</h1>
+        <a href="/articles/new" class="btn btn-success mt-1">Novo Projeto</a>
+
+        <% articles.forEach(article => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h3 class="card-title"><%= article.title %></h3>
+                    
+                    <div class="card-subtitle text-muted mb-2">
+                        Autor: <%= article.fullname %>
+                    </div>
+
+                    <div class="card-subtitle text-muted mb-2">
+                        Cadastro em: <%= article.createdAt.toLocaleDateString() %>
+                    </div>
+
+                    <div class="card-text mb-2">Descrição: <%= article.description %></div>
+
+                    <div class="card-text mb-2">Viabilidade: <%= article.viabilidade %></div>
+
+                    <div class="card-text mb-3">Data de Início: <%= article.startdate %></div>
+
+                    <div class="card-text mb-4"><h5><%= article.situation %></h5></div>
+                    
+                    <a href="articles/<%= article.slug %>" class="btn btn-primary">Ver Mais</a>
+                    <a href="articles/edit/<%= article.id %>" class="btn btn-info" 
+                        <%= article.situation == "Concluído" ? 'hidden' : '' %>
+                        <%= article.situation == "Cancelado" ? 'hidden' : '' %>>
+                        Editar
+                    </a>
+                    
+                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

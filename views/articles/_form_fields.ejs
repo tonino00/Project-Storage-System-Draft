@@ -1,0 +1,49 @@
+<div class="form-group">
+    <label for="title"><strong>Nome Completo</strong></label>
+    <input required value="<%= article.fullname %>" type="text" name="fullname" id="fullname" class="form-control">
+</div>
+<div class="form-group">
+    <label for="title"><strong>Título do Projeto</strong></label>
+    <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+</div>
+<div class="form-group">
+    <label for="description"><strong>Descrição</strong></label>
+    <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>
+</div>
+<div class="form-group">
+    <label for="price"><strong>Valor</strong></label>
+    <input required value="<%= article.price %>" type="number" name="price" id="price" class="form-control">
+</div>
+<div class="form-group">
+    <label for="startdate"><strong>Data de Início Prevista</strong></label>
+    <input required value="<%= article.startdate %>" type="date" name="startdate" id="startdate" class="form-control">
+    <label for="enddate" class="mt-2"><strong>Data de Término Prevista</strong></label>
+    <input required value="<%= article.enddate %>" type="date" name="enddate" id="enddate" class="form-control">
+</div>
+<div>
+    <label><strong>Viabilidade:</strong></label>
+</div>
+<div class="mb-2">
+    <label>Baixa Viabilidade</label>
+    <label class="ml-5 mr-5">
+        <input class="mr-1" type="radio" name="viabilidade" value="1" checked>1
+        <input class="ml-2 mr-1" type="radio" name="viabilidade" value="2">2
+        <input class="ml-2 mr-1" type="radio" name="viabilidade" value="3">3
+        <input class="ml-2 mr-1" type="radio" name="viabilidade" value="4">4
+        <input class="ml-2 mr-1" type="radio" name="viabilidade" value="5">5
+    </label>
+    <label>Alta Viabilidade</label>
+</div>
+<div class="form-group">
+    <label for="situation"><strong>Situação</strong></label>
+    <select required value="<%= article.situation %>" name="situation" id="situation" class="form-control">
+        <option selected disabled>Selecione</option>
+		<option value="Concluído" id="concluted" name="concluted">Concluído</option>
+		<option value="Em desenvolvimento">Em desenvolvimento</option>
+		<option value="Planejado">Planejado</option>
+        <option value="Cancelado">Cancelado</option>
+	</select>
+</div>
+
+<a href="/" class="btn btn-secondary">Cancelar</a>
+<button type="submit" class="btn btn-primary">Salvar</button>
