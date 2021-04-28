@@ -14,7 +14,7 @@
         Autor: <%= article.fullname %>
         </div>
        <div class="text-muted mb-2">
-          Cadastro em: <%= article.createdAt.toLocaleDateString() %>
+          Cadastro em: <%= article.createdAt %>
         </div>
         <div class="mt-2">
             <strong>Descrição:</strong> <%= article.description %>
@@ -29,10 +29,10 @@
             <strong>Situação:</strong> <%= article.situation %>
         </div>
         <div class="mt-2">
-            <strong>Data de Início Prevista:</strong> <%= article.startdate %>
+            <strong>Data de Início Prevista:</strong> <%= moment( article.startdate).format('DD/MM/YYYY')  %>
         </div>
         <div class="mb-2">
-            <strong>Data de Término Prevista:</strong> <%=article.enddate %>
+            <strong>Data de Término Prevista:</strong> <%=moment( article.enddate).format('DD/MM/YYYY')  %>
         </div>
         <a href="/" class="btn btn-secondary">Página Inicial</a>
         <a href="/articles/edit/<%= article.id %>" class="btn btn-info"
